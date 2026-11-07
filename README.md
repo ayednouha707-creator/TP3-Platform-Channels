@@ -20,6 +20,12 @@ Exercice 3
 
 On envoie une valeur seulement si 200 ms sont passees depuis la derniere (System.currentTimeMillis()). Ca evite de consommer la batterie pour rien.
 
+Screenshots
+
+<img width="1080" height="2400" alt="Screenshot_20261107_134552" src="https://github.com/user-attachments/assets/2fee4dfb-6bb1-4c10-a127-cd39c976f5b1" />
+
+<img width="1080" height="2400" alt="Screenshot_20261107_134540" src="https://github.com/user-attachments/assets/787e9e71-d491-4c86-97d3-f244d9c41f86" />
+
 
 Exercice 4 - Ruche
 
