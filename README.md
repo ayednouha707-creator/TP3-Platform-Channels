@@ -1,17 +1,29 @@
-# tp3_channels
+# TP3 Platform Channels
 
-A new Flutter project.
 
-## Getting Started
+1.MethodChannel : 
+une question, une reponse (ex : demander la permission du micro). EventChannel : flux continu tant que Flutter ecoute (ex : le son de la ruche).
 
-This project is a starting point for a Flutter application.
+2. Le hot reload recharge seulement le Dart, le Kotlin doit etre recompile avec flutter run.
 
-A few resources to get you started if this is your first Flutter project:
+3. Oubli : le await Dart reste bloque. Deux fois : l'app plante (Reply already submitted).
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+4. read() est bloquant donc IO pour ne pas figer l'ecran, et events.success() doit etre sur le thread principal donc Main.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+5 onCancel libere le capteur ou le micro quand Flutter arrete d'ecouter. Sinon il continue et vide la batterie.
+
+6 Parce que la reponse de l'utilisateur arrive plus tard dans onRequestPermissionsResult.
+
+7 battery_plus contient du code natif (MethodChannel + BatteryManager), ecrit par quelqu'un d'autre.
+
+Exercice 3
+
+On envoie une valeur seulement si 200 ms sont passees depuis la derniere (System.currentTimeMillis()). Ca evite de consommer la batterie pour rien.
+
+
+Exercice 4 - Ruche
+
+Module : analyse du son de la ruche avec le micro
+Canal : ruche/audio (EventChannel)
+API : AudioRecord + FFT
+Permission : RECORD_AUDIO
